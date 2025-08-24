@@ -1,0 +1,121 @@
+<app-header-component></app-header-component>
+
+<div class="PageContainer">
+
+
+    <!-- Filters -->
+    <div class="sidebar-filters">
+        <h4>Category</h4>
+        <div>
+            <label><input type="checkbox" checked disabled /> Woman</label>
+            <ul class="subcategory">
+                <li><input type="checkbox" checked disabled /> Tops (37)</li>
+                <li><input type="checkbox" /> Jackets (22)</li>
+                <li><input type="checkbox" /> Sweaters (31)</li>
+            </ul>
+        </div>
+        <div><input type="checkbox" /> Men</div>
+        <div><input type="checkbox" /> Kids</div>
+        <div><input type="checkbox" /> Sporty</div>
+        <div><input type="checkbox" /> Casual</div>
+
+        <h4>Brands</h4>
+
+        <div><input type="checkbox" /> H&M</div>
+        <div><input type="checkbox" /> Zara</div>
+        <div><input type="checkbox" /> Peter England</div>
+        <div><input type="checkbox" /> Allen Solly</div>
+
+
+        <h4>Price</h4>
+        <div class="price-filter">
+            <label>Price Range</label>
+            <div class="slider-container">
+                <input type="range" [min]="minLimit" [max]="maxLimit" [(ngModel)]="minValue" (change)="onPriceChange()"
+                    class="slider slider-min">
+                <input type="range" [min]="minLimit" [max]="maxLimit" [(ngModel)]="maxValue" (change)="onPriceChange()"
+                    class="slider slider-max">
+            </div>
+            <div class="prices">
+                <span>{{ minValue | currency }}</span>
+                <span>{{ maxValue | currency }}</span>
+            </div>
+        </div>
+
+        <h4>Size</h4>
+
+
+        <div><input type="checkbox" /> XS</div>
+        <div><input type="checkbox" /> S</div>
+        <div><input type="checkbox" /> M</div>
+        <div><input type="checkbox" /> L</div>
+        <div><input type="checkbox" /> XL</div>
+        <div><input type="checkbox" /> XXL</div>
+    </div>
+
+    <!-- Applied filters -->
+    <div class="applied-filters">
+        Showing 9 results from total 37 for "tops"
+        <div class="filters-list">
+            <span>Tops <button>x</button></span>
+            <span>$20-$100 <button>x</button></span>
+            <span>Medium <button>x</button></span>
+        </div>
+    </div>
+
+    <!-- Product grid -->
+    <div class="products-grid">
+        <div *ngFor="let product of products" class="product-card">
+            <div class="image-wrapper">
+                <img [src]="product.imageUrl" [alt]="product.name" />
+                <div *ngIf="product.isOnSale" class="sale-tag">SALE</div>
+            </div>
+            <div class="product-info">
+                <h5>{{ product.name }}</h5>
+                <div class="price">
+                    ${{ product.price }}
+                    <span *ngIf="product.oldPrice" class="old-price">${{ product.oldPrice }}</span>
+                </div>
+                <small>{{ product.colors }} Colors</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <button>Previous</button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <span>...</span>
+        <button>8</button>
+        <button>9</button>
+        <button>10</button>
+        <button>Next</button>
+    </div>
+
+    <!-- Banner offer -->
+    <div class="offer-banner">
+        <div class="banner-text">
+            <h3>LIMITED OFFER</h3>
+            <h2>35% off only this friday and get special gift</h2>
+            <button>Grab it now →</button>
+        </div>
+        <div class="banner-image">
+            <img src="assets/banner-models.jpg" alt="Offer Models" />
+        </div>
+    </div>
+
+    <!-- Newsletter subscription -->
+    <div class="newsletter">
+        <p>Subscribe to our newsletter to get updates to our latest collections</p>
+        <small>Get 20% off on your first order just by subscribing to our newsletter</small>
+        <input type="email" placeholder="Enter your email" />
+        <button>Subscribe</button>
+        <small>You will be able to unsubscribe at any time.<br />Read our <a href="#">Privacy Policy</a> here</small>
+    </div>
+
+
+</div>
+<!-- Footer -->
+<app-footer-component></app-footer-component>
