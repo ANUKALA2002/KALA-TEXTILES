@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/css/libs.bundle.css';
+@import 'assets/css/theme.bundle.css';
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('/src/assets/fonts/Feather.ttf') format('ttf'),
+         url('/src/assets/fonts/Jost-400-Book.woff2') format('woff2'),
+         url('/src/assets/fonts/Jost-400-BookItalic.ttf') format('ttf'),
+         url('/src/assets/fonts/Jost-400-BookItalic.woff2') format('woff2'),
+         url('/src/assets/fonts/Jost-500-Medium.woff2') format('woff2'),
+         url('/src/assets/fonts/Jost-600-Semi.woff2') format('woff2'),
+         url('/src/assets/fonts/Jost-400-BookItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Example usage */
+  body {
+    font-family: 'MyFont', sans-serif;
+  }
+  
